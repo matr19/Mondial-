@@ -16,6 +16,6 @@ name: Run Bot
            - name: Install dependencies
              run: pip install -r requirements.txt
            - name: Run Bot
-             run: python WebSM.py
+             run: python WebSM1.py
              env:
-               BOT_TOKEN: ${{ secrets.7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA}}
+               BOT_TOKEN: ${{ secrets.7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA }}
