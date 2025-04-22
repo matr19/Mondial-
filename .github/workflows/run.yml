@@ -1,2 +1,21 @@
-env:
-     BOT_TOKEN: ${{ secrets.7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA }}
+name: Run Bot
+     on: 
+       workflow_dispatch:
+       schedule:
+         - cron: '*/5 * * * *'  # يعمل كل 5 دقائق
+
+     jobs:
+       run-bot:
+         runs-on: ubuntu-latest
+         steps:
+           - uses: actions/checkout@v4
+           - name: Set up Python
+             uses: actions/setup-python@v4
+             with:
+               python-version: '3.10'
+           - name: Install dependencies
+             run: pip install -r requirements.txt
+           - name: Run Bot
+             run: python WebSM.py
+             env:
+               BOT_TOKEN: ${{ secrets.7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA}}
