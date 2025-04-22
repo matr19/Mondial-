@@ -1,3 +1,4 @@
+import os
 import requests
 from telegram.ext import Updater, CommandHandler
 from bs4 import BeautifulSoup
@@ -23,6 +24,12 @@ PROXIES = [
     {"http": "http://45.61.139.48:8011", "https": "http://45.61.139.48:8011"},
     {"http": "http://103.175.237.123:3128", "https": "http://103.175.237.123:3128"}
 ]
+
+# استخراج التوكن من متغيرات البيئة
+TOKEN = os.environ.get('BOT_TOKEN')  # التعديل الرئيسي هنا
+
+if not TOKEN:
+    raise ValueError("❗ لم يتم تعيين التوكن. يرجى إضافة BOT_TOKEN إلى متغيرات البيئة")
 
 def get_random_proxy():
     return random.choice(PROXIES)
@@ -64,9 +71,8 @@ def start(bot, update):
     """
     bot.send_message(chat_id=update.message.chat_id, text=welcome)
 
-# تشغيل البوت (بدون use_context)
-TOKEN = "7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA"
-updater = Updater(TOKEN)  # تم إزالة use_context هنا
+# تشغيل البوت
+updater = Updater(TOKEN)
 dp = updater.dispatcher
 dp.add_handler(CommandHandler("start", start))
 dp.add_handler(CommandHandler("scrape", scrape))
