@@ -2,7 +2,7 @@ name: Run Bot
      on: 
        workflow_dispatch:
        schedule:
-         - cron: '*/5 * * * *'  # يعمل كل 5 دقائق
+         - cron: '*/5 * * * *'  
 
      jobs:
        run-bot:
