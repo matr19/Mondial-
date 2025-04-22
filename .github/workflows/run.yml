@@ -20,4 +20,4 @@ jobs:
       - name: Run Bot
         run: python WedSM.py
         env:
-          BOT_TOKEN: ${{ 7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA }} 
+          BOT_TOKEN: ${{ secrets.7859012132:AAGDP9g90KRxg0ZqWT2tO_VCocrQecR24QA }} 
